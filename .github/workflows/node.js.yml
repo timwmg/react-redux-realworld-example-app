@@ -27,3 +27,8 @@ jobs:
     - run: npm install
     - run: npm run build --if-present
     - run: npm test
+  
+  # Zipping up
+    - uses: montudor/action-zip@v0.1.0
+      with:
+        args: zip -qq -r $(basename $GITHUB_REPOSITORY)-$GITHUB_RUN_ID.zip $GITHUB_WORKSPACE
