@@ -31,7 +31,7 @@ jobs:
   # Zipping up
     - run: |
         sudo apt-get install zip
-        zip -qq -r $(basename $GITHUB_REPOSITORY)-$GITHUB_RUN_ID.zip $GITHUB_WORKSPACE
+        zip -qq -r $(basename $GITHUB_REPOSITORY)-$GITHUB_RUN_ID.zip *
 
     - uses: actions/upload-artifact@v2
       with:
