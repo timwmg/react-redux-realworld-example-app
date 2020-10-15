@@ -1,0 +1,9 @@
+aws ec2 run-instances \
+    --image-id ami-0858cef8bb5430637 \
+    --instance-type t2.medium \
+    --subnet-id subnet-e289d998 \
+    --security-group-ids sg-0253fcb17f2622914 \
+    --associate-public-ip-address \
+    --key-name wmg-sandbox-2020-10-12 \
+    --user-data file://deploy.sh \
+    --iam-instance-profile Name=Allow-S3-Artifact-Repository 
