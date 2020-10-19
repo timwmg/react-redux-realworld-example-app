@@ -57,4 +57,6 @@ jobs:
         --user-data file://deploy_scripts/deploy.sh \
         --iam-instance-profile Name=Allow-S3-Artifact-Repository \
         --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=FrontEnd},{Key=Artifact,Value=s3://sandbox-demo-artifact-repository/$(basename $GITHUB_REPOSITORY)-$GITHUB_RUN_ID.zip}]'
-        
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
