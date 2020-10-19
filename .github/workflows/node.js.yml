@@ -32,11 +32,6 @@ jobs:
     - run: |
         sudo apt-get install zip
         zip -qq -r $(basename $GITHUB_REPOSITORY)-$GITHUB_RUN_ID.zip *
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: frontend-real-world-app
-        path: ./*.zip
         
     - uses: chrislennon/action-aws-cli@v1.1
       # All commands after this point have access to the AWS CLI     
