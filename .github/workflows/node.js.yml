@@ -47,6 +47,7 @@ jobs:
         
     - run: |
         aws ec2 run-instances \
+        --region us-east-2 \
         --image-id ami-073e817c81fc8ac8e \
         --instance-type t2.medium \
         --subnet-id subnet-e289d998 \
