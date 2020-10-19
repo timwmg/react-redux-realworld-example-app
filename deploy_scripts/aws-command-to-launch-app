@@ -1,10 +1,11 @@
 aws ec2 run-instances \
-    --image-id ami-073e817c81fc8ac8e \
-    --instance-type t2.medium \
-    --subnet-id subnet-e289d998 \
-    --security-group-ids sg-0253fcb17f2622914 \
-    --associate-public-ip-address \
-    --key-name wmg-sandbox-2020-10-12 \
-    --user-data file://deploy.sh \
-    --iam-instance-profile Name=Allow-S3-Artifact-Repository \
-    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=FrontEnd},{Key=Artifact,Value=s3://sandbox-demo-artifact-repository/react-redux-realworld-example-app-303550420.zip}]'
+        --region us-east-2 \
+        --image-id ami-073e817c81fc8ac8e \
+        --instance-type t2.medium \
+        --subnet-id subnet-e289d998 \
+        --security-group-ids sg-0253fcb17f2622914 \
+        --associate-public-ip-address \
+        --key-name wmg-sandbox-2020-10-12 \
+        --user-data file://deploy_scripts/deploy.sh \
+        --iam-instance-profile Name=Allow-S3-Artifact-Repository \
+        --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=FrontEnd},{Key=Artifact,Value=s3://sandbox-demo-artifact-repository/$(basename $GITHUB_REPOSITORY)-$GITHUB_RUN_ID.zip}]"
