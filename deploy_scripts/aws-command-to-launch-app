@@ -1,6 +1,7 @@
 aws ec2 run-instances \
+        --block-device-mappings DeviceName=/dev/sda1,Ebs={Encrypted=true} \
         --region us-east-2 \
-        --image-id ami-073e817c81fc8ac8e \
+        --image-id ami-0a3c855784c662fee \
         --instance-type t2.medium \
         --subnet-id subnet-e289d998 \
         --security-group-ids sg-0253fcb17f2622914 \
